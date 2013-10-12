@@ -1,5 +1,19 @@
-<ul>
+<h2>My List</h2>
+<table class='table table-striped table-hover'>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+
   {{#each}}
-  <li>{{name}} - {{price}} </li>
+  <tr>
+    <td data-role='name'>{{name}}</td>
+    <td data-role='price'>{{price}}</td>
+  </tr>
   {{/each}}
+</table>
+
+<ul>
 </ul>
