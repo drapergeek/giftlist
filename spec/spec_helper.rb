@@ -1,6 +1,9 @@
 require 'simplecov'
 SimpleCov.start 'rails'
 
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
+
 ENV['RAILS_ENV'] = 'test'
 
 require File.expand_path('../../config/environment', __FILE__)
@@ -21,5 +24,4 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
 end
 
-Capybara.javascript_driver = :webkit
 WebMock.disable_net_connect!(allow_localhost: true)

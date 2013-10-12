@@ -34,9 +34,9 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara-webkit', '>= 1.0.0'
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'poltergeist'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'timecop'
