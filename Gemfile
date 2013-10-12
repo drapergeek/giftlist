@@ -19,6 +19,8 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'unicorn'
+gem 'ember-rails'
+gem 'ember-source'
 
 group :development do
   gem 'better_errors'
