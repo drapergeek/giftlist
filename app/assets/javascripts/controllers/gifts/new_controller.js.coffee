@@ -1,29 +1,31 @@
-Giftlist.GiftsNewController = Ember.Controller.extend
+Giftlist.GiftsNewController = Ember.ObjectController.extend
   errorMessages: ''
   actions: {
     createGift: ->
       @_createGiftFromForm()
+
+    escapePressed: ->
+      @transitionToRoute('gifts')
   }
 
   _createGiftFromForm: ->
-    newGift = @store.createRecord('gift', name: @name, price: @price)
-    newGift.save().then(
+    gift = @get('model')
+    gift.save().then(
       (object) => @_success(object)
-      (error) => @_failure(error, newGift)
+      (error) => @_failure(error, @model)
     )
 
   _success:(object) ->
     @set('hasErrors', false)
-    @_clearFormFields()
+    @_resetObject()
     @_focusOnNameField()
 
   _failure: (error, newGift) ->
     @set('hasErrors', true)
     @get('store').deleteRecord(newGift)
 
-  _clearFormFields: ->
-    @set('name', '')
-    @set('price', '')
+  _resetObject: ->
+    @set('model', @store.createRecord('gift'))
 
   _focusOnNameField: ->
     $('#giftName').focus()

@@ -1,3 +1,3 @@
 Giftlist.GiftsNewRoute = Ember.Route.extend
-  renderTemplate: ->
-    @render(outlet: 'newGift')
+  model: ->
+    @store.createRecord('gift')

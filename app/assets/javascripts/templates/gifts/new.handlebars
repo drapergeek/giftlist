@@ -1,21 +1,19 @@
-<div class='row'>
-  <div class='col-md-8'>
-    <h2>Add a new gift</h2>
-    {{#if hasErrors}}
-        <div class="alert alert-danger fade in">
-          Your gift could not be saved.
-          <button type="button" class="close" data-dismiss="alert">×</button>
-        </div>
-    {{/if}}
-    <form class='form-inline' role='form'>
-      <div class='form-group'>
-        {{input value=name id='giftName' placeholder='Name' class='form-control'}}
-      </div>
-      <div class='form-group'>
-        {{input value=price id='giftPrice' placeholder='Price' class='form-control'}}
-      </div>
-      <input type="submit" value="Add" class='btn btn-submit' {{action createGift}}>
-      {{#link-to 'gifts' class='btn'}}Cancel{{/link-to}}
-    </form>
+<div class='col-md-4'>
+  <h2>Add a new gift</h2>
+  {{#if hasErrors}}
+  <div class="alert alert-danger fade in">
+    Your gift could not be saved.
+    <button type="button" class="close" data-dismiss="alert">×</button>
   </div>
+  {{/if}}
+  <form class='form' role='form'>
+    <div class='form-group'>
+      {{input value=model.name id='giftName' placeholder='Name' class='form-control'}}
+    </div>
+    <div class='form-group'>
+      {{input value=model.price id='giftPrice' placeholder='Price' class='form-control'}}
+    </div>
+    <input type="submit" value="Add" class='btn btn-submit' {{action createGift}}>
+    {{#link-to 'gifts' class='btn'}}Cancel{{/link-to}}
+  </form>
 </div>
