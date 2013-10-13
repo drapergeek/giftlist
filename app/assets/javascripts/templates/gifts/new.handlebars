@@ -9,6 +9,7 @@
         {{input value=price id='giftPrice' placeholder='Price' class='form-control'}}
       </div>
       <input type="submit" value="Add" class='btn btn-submit' {{action createGift}}>
+      {{#link-to 'gifts' class='btn'}}Cancel{{/link-to}}
     </form>
   </div>
 </div>
