@@ -1,5 +1,5 @@
 # http://emberjs.com/guides/models/defining-a-store/
 
 Giftlist.Store = DS.Store.extend
-  revision: 11
-  adapter: DS.RESTAdapter.create()
+  revision: 12
+  adapter: DS.RESTAdapter

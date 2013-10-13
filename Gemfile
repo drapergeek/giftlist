@@ -21,6 +21,7 @@ gem 'uglifier'
 gem 'unicorn'
 gem 'ember-rails'
 gem 'ember-source'
+gem "ember-data-source", "~> 1.0.0.beta.3"
 
 group :development do
   gem 'better_errors'

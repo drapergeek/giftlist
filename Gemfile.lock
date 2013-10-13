@@ -74,7 +74,7 @@ GEM
     dotenv (0.9.0)
     email_validator (1.4.0)
       activemodel
-    ember-data-source (0.14)
+    ember-data-source (1.0.0.beta.3)
       ember-source
     ember-rails (0.13.0)
       active_model_serializers
@@ -224,6 +224,7 @@ DEPENDENCIES
   database_cleaner
   delayed_job_active_record (>= 4.0.0)
   email_validator
+  ember-data-source (~> 1.0.0.beta.3)
   ember-rails
   ember-source
   factory_girl_rails

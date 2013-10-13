@@ -13,6 +13,10 @@ class GiftsController < ApplicationController
     respond_with Gift.create(gift_params)
   end
 
+  def destroy
+    respond_with Gift.destroy(params[:id])
+  end
+
   private
 
   def gift_params

@@ -43,6 +43,20 @@ feature 'basic gift management', js: true do
     expect(page).to have_gift(new_gift)
   end
 
+  scenario 'destroy gifts' do
+    gift = create(:gift)
+    visit '/'
+
+    expect(page).to have_gift(gift)
+    click_on gift.name
+
+    click_on 'Destroy'
+    expect(page).not_to have_gift(gift)
+
+    visit '/'
+    expect(page).not_to have_gift(gift)
+  end
+
   def verify_gift_form_is_clear
     fields = ['#giftName', '#giftPrice']
 

@@ -6,19 +6,19 @@ Giftlist.GiftsNewController = Ember.Controller.extend
   }
 
   _createGiftFromForm: ->
-    newGift = Giftlist.Gift.createRecord(name: @name, price: @price)
+    newGift = @store.createRecord('gift', name: @name, price: @price)
     newGift.save().then(
       (object) => @_success(object)
       (error) => @_failure(error, newGift)
     )
 
   _success:(object) ->
-    @set('errorMessages', '')
+    @set('hasErrors', false)
     @_clearFormFields()
     @_focusOnNameField()
 
   _failure: (error, newGift) ->
-    @set('errorMessages', newGift.errors)
+    @set('hasErrors', true)
     @get('store').deleteRecord(newGift)
 
   _clearFormFields: ->
