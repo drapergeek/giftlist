@@ -37,9 +37,18 @@ feature 'basic gift management', js: true do
     click_on 'Add'
 
     expect(page).to have_gift(new_gift)
+    verify_gift_form_is_clear
 
     visit '/'
     expect(page).to have_gift(new_gift)
+  end
+
+  def verify_gift_form_is_clear
+    fields = ['#giftName', '#giftPrice']
+
+    fields.each do |field|
+      expect(find(field).value).to eq('')
+    end
   end
 
   def press_enter_on_field_name(field_name)
