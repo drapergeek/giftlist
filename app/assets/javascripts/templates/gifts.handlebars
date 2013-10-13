@@ -22,7 +22,9 @@
       </tr>
       {{/each}}
     </table>
-    {{#link-to 'gifts.new'}}+{{/link-to}}
+    {{#if displayNewGiftButton}}
+      {{#link-to 'gifts.new'}}+{{/link-to}}
+    {{/if}}
   </div>
 
   {{outlet}}
