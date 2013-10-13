@@ -16,10 +16,10 @@
       </thead>
 
       {{#each}}
-      <tr>
-        <td data-role='name'>{{#link-to 'gift' this}}{{name}}{{/link-to}} </td>
-        <td data-role='price'>{{price}}</td>
-      </tr>
+        {{#link-to 'gift' this tagName=tr}}
+          <td data-role='name'>{{name}}</td>
+          <td data-role='price'>{{price}}</td>
+        {{/link-to}}
       {{/each}}
     </table>
     {{#if displayNewGiftButton}}
