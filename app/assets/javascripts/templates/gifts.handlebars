@@ -18,7 +18,7 @@
       {{#each}}
         {{#link-to 'gift' this tagName=tr}}
           <td data-role='name'>{{name}}</td>
-          <td data-role='price'>{{price}}</td>
+          <td data-role='price'>{{formattedPrice}}</td>
         {{/link-to}}
       {{/each}}
     </table>
