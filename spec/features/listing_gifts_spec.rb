@@ -23,6 +23,30 @@ feature 'basic gift management', js: true do
     expect(page).to have_content(gift.url)
   end
 
+  scenario 'add a gift' do
+    gift = create(:gift, url: 'http://www.example.com')
+
+    visit '/'
+    expect(page).to have_gift(gift)
+
+    new_gift = build(:gift, name: 'Macbook Air', price: '2199.99')
+
+    click_on '+'
+    fill_in 'giftName', with: new_gift.name
+    fill_in 'giftPrice', with: new_gift.price
+    click_on 'Add'
+
+    expect(page).to have_gift(new_gift)
+
+    visit '/'
+    expect(page).to have_gift(new_gift)
+  end
+
+  def press_enter_on_field_name(field_name)
+    field_id = "##{field_name}"
+    find(field_id).native.send_keys(:return)
+  end
+
   RSpec::Matchers.define :have_gift do |gift|
     match do |page|
       page.has_selector?("[data-role='name']", text: gift.name) &&
