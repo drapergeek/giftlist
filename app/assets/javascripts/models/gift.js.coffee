@@ -3,10 +3,11 @@ Giftlist.Gift = DS.Model.extend
   price: DS.attr('number')
   url: DS.attr('string')
 
-  formattedPrice: (->
+  formattedPrice: (-> @_formattedPrice()).property('price')
+
+  _formattedPrice: ->
     price = @get('price')
     if price
       "$#{price}"
     else
       price
-  ).property('price')

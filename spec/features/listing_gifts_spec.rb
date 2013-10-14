@@ -19,7 +19,7 @@ feature 'basic gift management', js: true do
     visit '/'
     expect(page).to have_gift(gift)
 
-    click_on gift.name
+    click_on_gift_named gift.name
     expect(page).to have_content(gift.url)
   end
 
@@ -48,7 +48,7 @@ feature 'basic gift management', js: true do
     visit '/'
 
     expect(page).to have_gift(gift)
-    click_on gift.name
+    click_on_gift_named gift.name
 
     click_on 'Destroy'
     expect(page).not_to have_gift(gift)
@@ -68,6 +68,10 @@ feature 'basic gift management', js: true do
   def press_enter_on_field_name(field_name)
     field_id = "##{field_name}"
     find(field_id).native.send_keys(:return)
+  end
+
+  def click_on_gift_named(name)
+    find("td[data-role='name']", text: name).click
   end
 
   RSpec::Matchers.define :have_gift do |gift|
