@@ -1,7 +1,10 @@
 <div class='col-md-4'>
   <h3>{{name}}</h3>
   <ul class='list-group'>
+    {{#if formattedPrice}}
     <li class='list-group-item'>{{formattedPrice}}</li>
+    {{/if}}
+
     {{#if url}}
     <li class='list-group-item'>{{url}}</li>
     {{/if}}
