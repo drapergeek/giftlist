@@ -4,6 +4,7 @@ Giftlist.Gift = DS.Model.extend
   url: DS.attr('string')
 
   formattedPrice: (-> @_formattedPrice()).property('price')
+  formattedUrl: (-> @_formattedUrl()).property('formattedUrl')
 
   _formattedPrice: ->
     price = @get('price')
@@ -11,3 +12,11 @@ Giftlist.Gift = DS.Model.extend
       "$#{price}"
     else
       price
+
+  _formattedUrl: ->
+    preferredLength = 35
+    url = @get('url')
+    if url.length > preferredLength
+      url.substring(0, preferredLength) + "..."
+    else
+      url

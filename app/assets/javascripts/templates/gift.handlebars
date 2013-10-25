@@ -6,7 +6,9 @@
     {{/if}}
 
     {{#if url}}
-    <li class='list-group-item'>{{url}}</li>
+      <li class='list-group-item'>
+        <a {{bindAttr href=url}} target='_blank'>{{formattedUrl}}</a>
+      </li>
     {{/if}}
   </ul>
   {{#link-to 'gift.edit' this class='btn btn-default'}}Edit{{/link-to}}
