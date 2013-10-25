@@ -14,13 +14,14 @@
           <th>Price</th>
         </tr>
       </thead>
-
+      <tbody>
       {{#each}}
         {{#link-to 'gift' this tagName=tr}}
           <td data-role='name'>{{name}}</td>
           <td data-role='price'>{{formattedPrice}}</td>
         {{/link-to}}
       {{/each}}
+      </tbody>
     </table>
     {{#if displayNewGiftButton}}
       {{#link-to 'gifts.new'}}+{{/link-to}}
