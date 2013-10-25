@@ -2,5 +2,6 @@
 
 Giftlist.Router.map () ->
   @resource 'gifts', path: '/', ->
+    @route 'new'
     @resource 'gift', path: '/gifts/:gift_id'
-    @route 'new', path: '/gifts/new'
+    @resource 'gift.edit', path: '/gifts/:gift_id/edit'

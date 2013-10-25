@@ -1,4 +1,7 @@
 Giftlist.GiftsNewView = Ember.View.extend
+  header: 'Add a new Gift'
+  saveButton: 'Add'
+
   didInsertElement: ->
     @$('#giftName').focus()
 

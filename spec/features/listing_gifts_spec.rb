@@ -57,6 +57,22 @@ feature 'basic gift management', js: true do
     expect(page).not_to have_gift(gift)
   end
 
+  scenario 'edit gift' do
+    gift = create(:gift, name: 'Xbox One')
+
+    visit '/'
+
+    expect(page).to have_gift(gift)
+    click_on_gift_named gift.name
+
+    click_on 'Edit'
+    fill_in 'giftName', with: 'Playstation 4'
+    fill_in 'giftPrice', with: '499.99'
+    click_on 'Save'
+
+    expect(page).to have_gift(name: 'Playstation 4', price: '499.99')
+  end
+
   def verify_gift_form_is_clear
     fields = ['#giftName', '#giftPrice']
 
@@ -76,8 +92,8 @@ feature 'basic gift management', js: true do
 
   RSpec::Matchers.define :have_gift do |gift|
     match do |page|
-      page.has_selector?("[data-role='name']", text: gift.name) &&
-        page.has_selector?("[data-role='price']", text: gift.price)
+      page.has_selector?("[data-role='name']", text: gift[:name]) &&
+        page.has_selector?("[data-role='price']", text: gift[:price])
     end
   end
 end

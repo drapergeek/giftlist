@@ -1,5 +1,5 @@
 <div class='col-md-4'>
-  <h2>Add a new gift</h2>
+  <h2>{{view.header}}</h2>
   {{#if hasErrors}}
   <div class="alert alert-danger fade in">
     Your gift could not be saved.
@@ -16,7 +16,7 @@
     <div class='form-group'>
       {{input value=model.url id='giftUrl' placeholder='URL' class='form-control'}}
     </div>
-    <input type="submit" value="Add" class='btn btn-submit' {{action createGift}}>
+    <input type="submit" {{bindAttr value=view.saveButton}} class='btn btn-submit' {{action saveGift}}>
     {{#link-to 'gifts' class='btn'}}Cancel{{/link-to}}
   </form>
 </div>
